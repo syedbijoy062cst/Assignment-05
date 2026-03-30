@@ -1,22 +1,47 @@
-document.getElementById("login-btn")
-.addEventListener("click", function(){
-    const inputUsername = document.getElementById("input-userName");
-    const userName = inputUsername.value;
-    console.log(userName);
+// sign-in link
 
-    const inputPin = document.getElementById("input-pin")
+document.getElementById('sign-in-btn').addEventListener('click', function(){
+    
+
+   
+
+    const inputName = document.getElementById('input-name');
+
+    const name = inputName.value;
+
+    console.log(name);
+
+    // pin number input
+
+    const inputPin = document.getElementById('input-pin');
+
     const pin = inputPin.value;
+
     console.log(pin);
 
-    if(userName == "admin" && pin =="admin123"){
-        alert('Login Successfully');
-        window.location.href = "Home.html";
+
+    // match number and pin
+
+    if(name=="admin" && pin=="admin123"){
+
+        alert('login sucssesfully')
+
+        window.location.assign('/home.html')
+
+
     }
+
     else{
-        alert('Login failed');
+        alert('login failed')
         return;
     }
-    
-    
+
+
+
+
+  
+
+
+
 });
 
