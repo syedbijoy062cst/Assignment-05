@@ -9,13 +9,9 @@ const BASE = "https://phi-lab-server.vercel.app/api/v1/lab";
 
 let currentTab = "all";
 
-
-
-
-
 // load issue
 
-const loadIssues = async ()=>{
+const loadIssues = async () => {
 
     
   const res = await fetch(`${BASE}/issues`);
@@ -76,13 +72,7 @@ const displayIssues = (issues) =>{
       <div class="labels">${labelsHTML}</div>
       </div>
 
-      
-
       <p class="text-[#64748B] py-5 mt-5 border-t-2 "><span>#1</span> ${issue.author}</p>
-      
-
-       
-
       
       <p class="text-[#64748B]  ">${issue.createdAt}</p>
 
@@ -155,7 +145,7 @@ async function openModal(id) {
     
     </div>
 
-    <div class ="">
+    <div >
      
       <div class="labels">${labelsHTML}</div>
       </div>

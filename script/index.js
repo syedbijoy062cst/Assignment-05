@@ -9,11 +9,11 @@ document.getElementById("login-btn")
     console.log(pin);
 
     if(userName == "admin" && pin =="admin123"){
-        alert('login Success');
+        alert('Login Successfully');
         window.location.href = "Home.html";
     }
     else{
-        alert('login failed');
+        alert('Login failed');
         return;
     }
     
