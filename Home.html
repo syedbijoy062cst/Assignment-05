@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Github-Issue-Tracker
+    </title>
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <!-- tailwind and daisyui -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- <nav class="">
+        <div class=" flex justify-between items-center">
+           <div class="flex gap-2">
+            <img class="w-[36] h-[37]" src="assets/github-logo.png" alt="">
+            <h2 class="font-bold text-xl  ">GitHub Issues Tracker</h2>
+           </div>
+          <div class="join">
+          <div>
+             <label class="input validator join-item">
+             <input id="input-search" type="text" placeholder="Search Vocabulary Now" required />
+            </label>
+            </div>
+           <button id="btn-search" class="btn btn-primary join-item">Search</button>
+          </div>
+        </div>
+    </nav> -->
+  <section   class="bg-gray-100">
+     <div class="navbar bg-base-200 shadow-sm px-6">
+    
+    <!-- Left -->
+    <div class="flex-1 flex items-center gap-2">
+      <img src="assets/github-logo.png" class="w-6 h-6">
+      <span class="text-lg font-semibold">GitHub Issues Tracker</span>
+    </div>
+
+    <!-- Right -->
+    <div class="flex-none gap-3">
+
+      <!-- Search -->
+      <input 
+        type="text" 
+        placeholder="Search issues..." 
+        class="input input-bordered input-sm w-56" 
+      />
+
+      <!-- Button -->
+      <button class="btn btn-primary btn-sm">
+        + New Issue
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Tabs Section -->
+  <div class="max-w-4xl mx-auto mt-10 bg-base-100 p-6 rounded-xl shadow">
+
+    <div id="" class="flex gap-2">
+      
+      <button class="btn tab-1 btn-primary btn-sm">All</button>
+      <button class="btn tab-2 btn-outline btn-sm">Open</button>
+      <button class="btn btn-outline btn-sm">Closed</button>
+
+    </div>
+
+  </div>
+  </section>
+    <!-- Navbar -->
+</body>
+</html>

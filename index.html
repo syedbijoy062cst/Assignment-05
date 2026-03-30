@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Github-Issue-Tracker
+    </title>
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <!-- tailwind and daisyui -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class=" flex justify-center  mx-auto mt-[60px] mb-[60px]">
+  <div class="card w-[520px] bg-white shadow-md">
+    <div class="card-body text-center">
+
+      <!-- Icon -->
+      <div class="flex justify-center ">
+        <div class= "flex items-center justify-center">
+          <img src="assets/github-logo.png" alt=""/>
+        </div>
+      </div>
+
+      <!-- Title -->
+      <h2 class="text-xl font-semibold mt-2">GitHub Issues Tracker</h2>
+      <p class="text-sm text-[#64748B]">
+        Sign in to manage your issues
+      </p>
+      <!-- Username -->
+      <div class="text-left mt-4">
+        <label class="label">
+          <span  class="label-text font-bold">Username</span>
+        </label>
+        <input id="input-userName" type="text" placeholder="Enter Username" class="input input-bordered w-full" />
+        <p class="text-xs text-blue-500 mt-1">Default: admin</p>
+      </div>
+
+      <!-- Password -->
+      <div class="text-left mt-2">
+        <label class="label">
+          <span class="label-text font-bold">Password</span>
+        </label>
+        <input id="input-pin" type="password" placeholder="Enter Password" class="input input-bordered w-full" />
+        <p class="text-xs text-blue-500 mt-1">Default: admin123</p>
+      </div>
+
+      <!-- Button -->
+      <button id="login-btn" class="btn bg-indigo-600  text-white mt-4 border-none">
+        Sign In
+      </button>
+
+      <!-- OR -->
+      <p class="text-sm text-gray-400 my-2">OR</p>
+
+      <!-- Demo Box -->
+      <div class="bg-gray-100 p-3 rounded text-sm">
+        <p class="font-semibold">Demo Credentials:</p>
+        <p>Username: admin</p>
+        <p>Password: admin123</p>
+      </div>
+    </div>
+  </div>
+  </header>
+
+  
+ 
+
+  <script src="script/index.js"></script>
+</body>
+</html>
