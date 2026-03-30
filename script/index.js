@@ -17,30 +17,6 @@ document.getElementById("login-btn")
         return;
     }
     
-
-    document.getElementById("loadDataBtn").addEventListener("click", () => {
-  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-
-      const container = document.getElementById("data-container");
-      container.innerHTML = "";
-
-      data.forEach(issue => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-          <h3>${issue.title || "No Title"}</h3>
-          <p>${issue.description || "No Description"}</p>
-          <hr/>
-        `;
-        container.appendChild(div);
-      });
-    })
-    .catch(err => {
-      console.error("Error:", err);
-    });
-});
     
 });
 

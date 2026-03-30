@@ -1,0 +1,52 @@
+*{
+  font-family: "Geist", sans-serif;
+  
+}
+
+
+
+.tab {
+  padding: 8px 30px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tab.active {
+  background: #6c2cff;
+  color: white;
+  
+}
+
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border-top: 4px solid gray;
+  cursor: pointer;
+}
+
+.card.open {
+  border-top: 4px solid green;
+}
+
+.card.closed {
+  border-top: 4px solid purple;
+}
+
+
+.priority{
+  
+  display: flex;
+
+  justify-content: end;
+
+  font:bold;
+  color: rgb(0, 0, 0);
+
+  
+
+  
+}
