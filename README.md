@@ -24,11 +24,13 @@
 ***forEach(): Executes a function for each element (does not return a new array).
 
 4️⃣ What is an arrow function?
+
 Ans:
 ***An arrow function is a short and modern way to write functions in JavaScript.
 
 5️⃣ What are template literals?
 Ans:
+
 ***Template literals use backticks (`) to create strings and allow embedding variables and expressions easily.
 
 
