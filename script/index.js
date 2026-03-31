@@ -12,7 +12,7 @@ document.getElementById('sign-in-btn').addEventListener('click', function () {
 
         alert('Login successfully');
 
-        window.location.assign("home.html");
+        window.location.assign(" home.html");
 
     } else {
         alert('Login failed');
