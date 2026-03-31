@@ -9,98 +9,101 @@ const BASE = "https://phi-lab-server.vercel.app/api/v1/lab";
 
 let currentTab = "all";
 
-//Load Issues
+// load issue
+
 const loadIssues = async () => {
-  try {
-    const res = await fetch(`${BASE}/issues`);
-    const data = await res.json();
 
-    let issues = data.data || [];
+    
+  const res = await fetch(`${BASE}/issues`);
+  const data = await res.json();
 
-    // filter by tab
-    if (currentTab !== "all") {
-      issues = issues.filter(i => i.status === currentTab);
-    }
+  let issues = data.data;
 
-    displayIssues(issues);
-
-  } catch (err) {
-    console.error("Error loading issues:", err);
+  if (currentTab !== "all") {
+    issues = issues.filter(i => i.status === currentTab);
   }
-};
+
+  console.log(issues);
+  displayIssues(issues);
+
+    
 
 
-const displayIssues = (issues) => {
-  const container = document.getElementById("issues");
+}
+
+// display issue
+
+
+
+
+
+
+const displayIssues = (issues) =>{
+ const container = document.getElementById("issues");
   container.innerHTML = "";
 
   document.getElementById("count").innerText = `${issues.length} Issues`;
 
-  if (issues.length === 0) {
-    container.innerHTML = `<p class="text-center col-span-4">No issues found</p>`;
-    return;
-  }
-
   issues.forEach(issue => {
     const div = document.createElement("div");
+    div.className = `card ${issue.status}`;
 
-    // status class fallback
-    const statusClass = issue.status === "open" ? "bg-green-100" : "bg-blue-100";
 
-    div.className = `card p-4 shadow-md rounded-xl ${statusClass}`;
-
-    // labels safe check
-    const labelsHTML = (issue.labels || []).map(label => {
-      return `<span class="bg-amber-300 px-2 py-1 rounded text-sm">${label}</span>`;
+     const labelsHTML = issue.labels.map(label => {
+      return `<span class="label bg-amber-300 p-1 my-3 rounded-sm   ${label.replace(" ", "-")}">${label}</span>`;
     }).join(" ");
 
     div.innerHTML = `
-      <div class="flex justify-between">
-        <span class="font-semibold capitalize">${issue.status}</span>
-        <span class="text-sm">${issue.priority}</span>
+
+
+    <div class="flex justify-between">
+     <div>  
+        ${issue.status}
+      </div>
+     <p class="priority"> ${issue.priority}</p>
+
+     </div>
+      <h4 class="font-bold text-xl ">${issue.title}</h4>
+      <p class="text-[#64748B]">${issue.description}</p>
+
+      
+      <div class ="">
+     
+      <div class="labels">${labelsHTML}</div>
       </div>
 
-      <h4 class="font-bold text-lg mt-2">${issue.title}</h4>
-      <p class="text-[#64748B] text-sm">${issue.description}</p>
+      <p class="text-[#64748B] py-5 mt-5 border-t-2 "><span>#1</span> ${issue.author}</p>
+      
+      <p class="text-[#64748B]  ">${issue.createdAt}</p>
 
-      <div class="my-2">${labelsHTML}</div>
 
-      <p class="text-[#64748B] text-sm border-t pt-2">
-        <span>#${issue.id}</span> ${issue.author}
-      </p>
-
-      <p class="text-xs text-gray-400">${issue.createdAt}</p>
     `;
 
-    div.addEventListener("click", () => openModal(issue.id));
+    div.onclick = () => openModal(issue.id);
 
     container.appendChild(div);
+
+
   });
-};
-
-
-async function searchIssue() {
-  try {
-    const desktop = document.getElementById("search-desktop");
-    const mobile = document.getElementById("search-mobile");
-
-    const text = (desktop?.value || mobile?.value || "").trim();
-
-    if (!text) {
-      loadIssues();
-      return;
-    }
-
-    const res = await fetch(`${BASE}/issues/search?q=${text}`);
-    const data = await res.json();
-
-    displayIssues(data.data || []);
-
-  } catch (err) {
-    console.error("Search error:", err);
-  }
 }
 
+
+// search 
+
+async function searchIssue() {
+  const desktop = document.getElementById("search-desktop");
+  const mobile = document.getElementById("search-mobile");
+  const text = desktop.value || mobile.value;
+
+  const res = await fetch(`${BASE}/issues/search?q=${text}`);
+  const data = await res.json();
+
+  displayIssues(data.data);
+}
+
+
+
+// call issue
 
 function changeTab(tab, el) {
   currentTab = tab;
@@ -112,62 +115,80 @@ function changeTab(tab, el) {
 }
 
 
+
+
 async function openModal(id) {
-  try {
-    const res = await fetch(`${BASE}/issue/${id}`);
-    const data = await res.json();
-    const i = data.data;
+  const res = await fetch(`${BASE}/issue/${id}`);
+  const data = await res.json();
+  const i = data.data;
 
-    const modal = document.getElementById("modal");
-    const content = document.getElementById("modalContent");
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modalContent");
 
-    const labelsHTML = (i.labels || []).map(label => {
-      return `<span class="bg-amber-300 px-2 py-1 rounded text-sm">${label}</span>`;
-    }).join(" ");
 
-    content.innerHTML = `
-      <h2 class="text-xl font-bold">${i.title}</h2>
+  
+     const labelsHTML = i.labels.map(label => {
+      return `<span class="label bg-amber-300 p-1 my-3 rounded-sm   ${label.replace(" ", "-")}">${label}</span>`;
+    }).join("  ");
 
-      <div class="flex flex-wrap gap-2 text-sm">
-        <span class="bg-green-500 text-white px-2 py-1 rounded">${i.status}</span>
-        <span><b>Opened by:</b> ${i.assignee || i.author}</span>
-        <span>${i.updatedAt}</span>
+  content.innerHTML = `
+
+    <h2 class="text-xl font-bold">${i.title}</h2>
+
+    <div class= "flex justify-start items-center  gap-3">
+
+     <p class=" bg-green-500 text-white p-2 rounded-xl"> ${i.status}</p>
+   <p><b>Opened by: </b>${i.assignee || i.author}</p>
+
+    <p>${i.updatedAt}</p>
+    
+    
+    </div>
+
+    <div >
+     
+      <div class="labels">${labelsHTML}</div>
       </div>
 
-      <div class="my-2">${labelsHTML}</div>
 
-      <p>${i.description}</p>
+    <p>${i.description}</p>
 
-      <div class="flex justify-between bg-slate-100 p-3 rounded">
-        <p><b>Assign:</b> ${i.assignee || "N/A"}</p>
-        <p><b>Priority:</b> ${i.priority}</p>
-      </div>
 
-      <button onclick="closeModal()" class="btn btn-primary mt-3">Close</button>
-    `;
+    <div class=" flex justify-between bg-slate-100 rounded-sm p-4">
 
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
+<p><b>Assign:</b> ${i.assignee || "N/A"}</p>
+<p><b>Priority:</b> ${i.priority}</p>
+    </div>
 
-  } catch (err) {
-    console.error("Modal error:", err);
-  }
+    
+    
+    
+
+    <button onclick="closeModal()" class="btn btn-primary mt-3">Close</button>
+  `;
+
+ 
+  modal.classList.remove("hidden"); 
+  modal.classList.add("flex");  
 }
 
-//  Modal Close
 function closeModal() {
   const modal = document.getElementById("modal");
+  
+ 
   modal.classList.add("hidden");
   modal.classList.remove("flex");
 }
 
-
+// Click outside modal to close
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("modal");
   if (e.target === modal) {
     closeModal();
   }
 });
+
+
 
 
 loadIssues();

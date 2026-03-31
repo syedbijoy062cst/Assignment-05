@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GitHub Issues Tracker</title>
 
     <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
 
 
     <!-- link css -->
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- font -->
 
@@ -35,34 +35,41 @@
 </head>
 
 
-<body class="min-h-screen max-w-md mx-auto">
+<body>
 
-    <div class="from pt-10">
-        <div class="card bg-base-100 w-full max-w-sm shrink-0 mx-auto shadow-sm rounded-2xl">
-            <div class="card-body">
-                <div class="flex flex-col justify-center items-center space-y-2 mb-5">
-                    <img src="./assets/github-logo.png" alt="">
-                    <h2 class="text-2xl text-[#1F2937] font-semibold">GitHub Issues Tracker</h2>
-                    <p class="text-[#64748B] font-medium">Sign in to manage your issues</p>
-                </div>
+     <body class="min-h-screen max-w-md mx-auto">
+    <div class="from pt-10 ">
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 mx-auto shadow-sm rounded-2xl">
 
-                <fieldset class="fieldset">
-                    <label class="label font-bold text-neutral">Username</label>
-                    <input id="input-name" type="text" value="admin" class="input border-2 rounded-md bg-base-200" placeholder="Enter Username" />
-                    <p class="text-[#4A00FF] font-medium">Default: admin</p>
+      <div class="card-body">
+        <div class="flex flex-col justify-center items-center space-y-2 mb-5">
+            <img src="./assets/github-logo.png" alt="">
 
-                    <br>
-
-                    <label class="label font-bold text-neutral">Password</label>
-                    <input id="input-pin" type="password" value="admin123" class="input border-2 rounded-md bg-base-200" placeholder="Enter Password" />
-                    <p class="text-[#4A00FF] font-medium">Default: admin123</p>
-
-                    <button id="sign-in-btn" class="btn btn-primary rounded-md font-bold mt-4">Sign In</button>
-                </fieldset>
-            </div>
+            <h2 class="text-2xl text-[#1F2937] font-semibold">GitHub Issues Tracker</h2>
+            <p class="text-[#64748B] font-medium">Sign in to manage your issues</p>
         </div>
+        <fieldset class="fieldset">
+
+            
+          <label class="label font-bold text-neutral">Username</label>
+          <input id="input-name" type="text" value="admin"  class="input  border-2 rounded-md bg-base-200" placeholder="Enter Username" />
+          <p class="text-[#4A00FF] font-medium">Default: admin</p>
+
+          <br>
+
+          <label class="label font-bold text-neutral">Password</label>
+          <input id="input-pin" type="password"  value="admin123"  class="input border-2 rounded-md  bg-base-200" placeholder="Enter Password" />
+          <p class="text-[#4A00FF] font-medium">Default: admin123</p>
+          
+          <button id="sign-in-btn" class="btn btn-primary  rounded-md font-bold mt-4">Sign In</button>
+        </fieldset>
+      </div>
     </div>
 
+    </div>
+
+
     <script src="script/index.js"></script>
+    
 </body>
 </html>
